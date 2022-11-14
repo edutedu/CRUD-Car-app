@@ -1,8 +1,7 @@
-package models;
+package com.example.crud_car_app.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Getter;
-import lombok.Setter;
+
 
 import javax.persistence.*;
 
@@ -21,24 +20,22 @@ public class Car {
     @Column(name = "model")
     private String model;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "car")
+    private CarSpecs carSpecs;
 
     public Car(){
 
     }
 
 
-
-    public Car(String name, String model) {
+    public Car(String name, String model, CarSpecs carSpecs) {
         this.brand = name;
         this.model = model;
+        this.carSpecs = carSpecs;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getBrand() {
@@ -56,5 +53,11 @@ public class Car {
     public void setModel(String model) {
         this.model = model;
     }
+    public CarSpecs getCarSpecs() {
+        return carSpecs;
+    }
 
+    public void setCarSpecs(CarSpecs carSpecs) {
+        this.carSpecs = carSpecs;
+    }
 }

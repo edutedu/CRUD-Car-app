@@ -1,4 +1,4 @@
-package models;
+package com.example.crud_car_app.models;
 
 import javax.persistence.*;
 
@@ -21,8 +21,7 @@ public class CarSpecs {
     private int km;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
-    @JoinColumn(name = "car_id")
+    @JoinColumn(name="car_id", nullable = false)
     private Car car;
 
     public CarSpecs(){
