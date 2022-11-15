@@ -1,5 +1,7 @@
 package com.example.crud_car_app.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity

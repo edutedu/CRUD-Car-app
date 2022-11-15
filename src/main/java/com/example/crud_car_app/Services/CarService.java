@@ -31,8 +31,8 @@ public class CarService {
         return carRepository.findAll();
     }
 
-    public List<Car> getCarByBrand(String name){
-        return carRepository.findByBrand(name);
+    public List<Car> getCarByBrand(String brand){
+        return carRepository.findByBrand(brand);
     }
 
     public List<Car> getCarByModel(String model){
@@ -44,13 +44,19 @@ public class CarService {
             carSpecsRepository.deleteById(id);
         }
         carRepository.deleteById(id);
-        return "Car with the id: " + id +" has been deleted";
+        return "Car with the id:" + id +" has been deleted";
     }
 
-    public Car updateCar(Car car){
-        Car existingCar = carRepository.findById(car.getId()).orElse(null);
-        existingCar.setBrand(car.getBrand());
-        existingCar.setModel(car.getModel());
+    public Car updateCar(int id, Car car){
+        Car existingCar = carRepository.findById(id).orElse(null);
+        assert existingCar != null;
+        if(car.getBrand()!= null){
+            existingCar.setBrand(car.getBrand());
+        }
+        if(car.getModel() != null){
+            existingCar.setModel(car.getModel());
+        }
+
         return carRepository.save(existingCar);
     }
 }
