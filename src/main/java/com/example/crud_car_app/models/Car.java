@@ -53,11 +53,4 @@ public class Car {
         this.model = model;
     }
 
-    public CarSpecs getCarSpecs() {
-        return carSpecs;
-    }
-
-    public void setCarSpecs(CarSpecs carSpecs) {
-        this.carSpecs = carSpecs;
-    }
 }

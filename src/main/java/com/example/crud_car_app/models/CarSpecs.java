@@ -58,14 +58,6 @@ public class CarSpecs {
         this.productionYear = productionYear;
     }
 
-    public String getBodyType() {
-        return bodyType;
-    }
-
-    public void setBodyType(String bodyType) {
-        this.bodyType = bodyType;
-    }
-
     public int getKm() {
         return km;
     }
