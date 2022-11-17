@@ -1,5 +1,6 @@
 package com.example.crud_car_app.models;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -22,12 +23,12 @@ public class Car {
     private String model;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "car")
+    @JsonIgnore
     private CarSpecs carSpecs;
 
     public Car(){
 
     }
-
 
     public Car(String name, String model, CarSpecs carSpecs) {
         this.brand = name;
@@ -35,9 +36,6 @@ public class Car {
         this.carSpecs = carSpecs;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getBrand() {
         return brand;
@@ -54,6 +52,7 @@ public class Car {
     public void setModel(String model) {
         this.model = model;
     }
+
     public CarSpecs getCarSpecs() {
         return carSpecs;
     }

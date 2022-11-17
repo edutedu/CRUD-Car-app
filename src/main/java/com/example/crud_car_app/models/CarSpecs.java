@@ -1,6 +1,5 @@
 package com.example.crud_car_app.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -8,6 +7,8 @@ import javax.persistence.*;
 @Table(name = "carspecs")
 public class CarSpecs {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private int id;
 
     @Column
@@ -36,13 +37,6 @@ public class CarSpecs {
         this.km = km;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public Car getCar() {
-        return car;
-    }
 
     public void setCar(Car car) {
         this.car = car;

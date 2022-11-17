@@ -40,7 +40,6 @@ public class CarController {
         return carService.getCarByBrand(brand);
     }
 
-
     @GetMapping("/getCarsByModel/{model}")
     public List<Car> findCarsByModel(@PathVariable(value = "model") String model){
         return carService.getCarByModel(model);
