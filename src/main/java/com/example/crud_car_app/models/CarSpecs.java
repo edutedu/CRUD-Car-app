@@ -65,4 +65,12 @@ public class CarSpecs {
     public void setKm(int km) {
         this.km = km;
     }
+
+    public String getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(String bodyType) {
+        this.bodyType = bodyType;
+    }
 }
